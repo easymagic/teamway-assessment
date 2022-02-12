@@ -15,6 +15,8 @@ class CreateUserShiftsTable extends Migration
     {
         Schema::create('user_shifts', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->nullable();
+            $table->string('shift_id')->nullable();
             $table->timestamps();
         });
     }
