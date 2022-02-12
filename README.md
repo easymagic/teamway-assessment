@@ -8,7 +8,7 @@ users - Controller
 users/:id/shifts ==> getShiftsByUserId
 users            ==> users
 users/:id        ==> getUsersById
-users/:id/accounts ==> updateAccountsByUserIdAccounts
+users/:id/accounts ==> updateAccountsByUserId
 users/:id/shifts/current ==> getCurrentShiftsByUserId
 users/:id/shifts/:id/current ==> getCurrentShiftByUserIdAndShiftId
 
