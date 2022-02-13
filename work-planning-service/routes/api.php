@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -17,3 +18,19 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+// User Resource
+Route::get('users/{userId}/shifts',[UserController::class,'getShiftsByUserId']);
+Route::get('users',[UserController::class,'users']);
+Route::get('users/{userId}',[UserController::class,'getUsersById']);
+Route::post('users/{userId}/accounts',[UserController::class,'updateAccountsByUserId']);
+Route::get('users/{userId}/shifts/current',[UserController::class,'getCurrentShiftsByUserId']);
+Route::get('users/{userId}/shifts/{shiftId}/current',[UserController::class,'getCurrentShiftByUserIdAndShiftId']);
+Route::get('users/{userId}/shifts',[UserController::class,'addShiftToUser']);
+Route::delete('users/{userId}/shifts',[UserController::class,'removeShiftFromUser']);
+
+
+// Shift Resource
+
+
+

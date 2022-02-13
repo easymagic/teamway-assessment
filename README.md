@@ -12,6 +12,9 @@ users/:id/accounts ==> updateAccountsByUserId
 users/:id/shifts/current ==> getCurrentShiftsByUserId
 users/:id/shifts/:id/current ==> getCurrentShiftByUserIdAndShiftId
 
+users/:id/shifts ==> addShiftToUser
+users/:id/shifts ==> removeShiftFromUser
+
 
 shifts - Controller
 -------------------

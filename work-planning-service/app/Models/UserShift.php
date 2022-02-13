@@ -10,8 +10,9 @@ class UserShift extends Model
     use HasFactory;
 
     protected $fillable = ['user_id','shift_id'];
+    protected $with = ['user','shift'];
 
-    function users(){
+    function user(){
         return $this->belongsTo(User::class,'user_id');
     }
 

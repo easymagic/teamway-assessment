@@ -61,32 +61,51 @@ class UserController extends Controller
         if (is_null($shift)){
           return [
               'message'=>'Current user has no assigned shifts!',
-              'error'=>true
+              'error'=>true,
+            //   'status'=>'inactive'
           ];
         }
         if ($shift->id != $shiftId){
             return [
                 'message'=>'Invalid shift selection!',
-                'error'=>true
+                'error'=>true,
+                // 'status'=>'inactive'
             ];
         }
         if ($shift->isCurrentShift()){
            return [
                'message'=>'Your shift is currently active',
                'error'=>false,
-               'data'=>$shift
+               'data'=>$shift,
+               'status'=>'active'
            ];
         }
         return [
           'message'=>'Your shift is currently in-active',
           'error'=>true,
-          'data'=>$shift
+          'data'=>$shift,
+          'status'=>'inactive'
         ];
       }
 
+      function addShiftToUser($userId){
+        try {
+            $data = request()->validate([
+               'shift_id'=>'required|exists:shifts,id'
+            ]);
+            return User::query()->find($userId)->addShift($data['shift_id']);
+        } catch (ValidationException $ex) {
+            return [
+                'error'=>true,
+                'errors'=>$ex->errors(),
+                'message'=>$ex->getMessage()
+            ];
+        }
+      }
 
-
-
+      function removeShiftFromUser($userId){
+        return User::query()->find($userId)->removeShift();
+      }
 
 
 }
