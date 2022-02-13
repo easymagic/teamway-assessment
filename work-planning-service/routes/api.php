@@ -27,7 +27,7 @@ Route::get('users/{userId}',[UserController::class,'getUsersById']);
 Route::post('users/{userId}/accounts',[UserController::class,'updateAccountsByUserId']);
 Route::get('users/{userId}/shifts/current',[UserController::class,'getCurrentShiftsByUserId']);
 Route::get('users/{userId}/shifts/{shiftId}/current',[UserController::class,'getCurrentShiftByUserIdAndShiftId']);
-Route::get('users/{userId}/shifts',[UserController::class,'addShiftToUser']);
+Route::post('users/{userId}/shifts',[UserController::class,'addShiftToUser']);
 Route::delete('users/{userId}/shifts',[UserController::class,'removeShiftFromUser']);
 
 
