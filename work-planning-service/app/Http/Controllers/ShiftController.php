@@ -43,13 +43,4 @@ class ShiftController extends Controller
         return [];
     }
 
-
-
-
-
-
-
-
-
-
 }
