@@ -35,9 +35,9 @@ Route::delete('users/{userId}/shifts',[UserController::class,'removeShiftFromUse
 Route::get('shifts',[ShiftController::class,'shifts']);
 Route::get('shifts/{shiftId}',[ShiftController::class,'getShiftById']);
 Route::get('shifts/{shiftId}/users',[ShiftController::class,'getUsersByShiftId']);
-Route::get('shifts/current',[ShiftController::class,'getCurrentShift']);
-Route::get('shifts/current/users',[ShiftController::class,'getUsersByCurrentShift']);
-Route::get('shifts/current/users/{userId}',[ShiftController::class,'getUsersByCurrentShiftAndUserId']);
+Route::get('shifts:current',[ShiftController::class,'getCurrentShift']);
+Route::get('shifts:current/users',[ShiftController::class,'getUsersByCurrentShift']);
+Route::get('shifts:current/users/{userId}',[ShiftController::class,'getUsersByCurrentShiftAndUserId']);
 
 
 

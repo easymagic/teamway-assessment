@@ -110,6 +110,7 @@ class Shift extends Model
     }
 
     static function currentShift(){
+        // dd(90);
         $shifts = self::query()->get();
         $current = [];
         foreach ($shifts as $shift){
@@ -117,6 +118,7 @@ class Shift extends Model
                $current = $shift;
             }
         }
+        // dd($current);
         return $current;
     }
 
