@@ -44,7 +44,7 @@ class UserController extends Controller
             'error'=>true
         ];
       }
-      if ($shift->isCurrentShift()){
+      if ($shift->shift->isCurrentShift()){
          return [
              'message'=>'Your shift is currently active',
              'error'=>false
@@ -65,14 +65,14 @@ class UserController extends Controller
             //   'status'=>'inactive'
           ];
         }
-        if ($shift->id != $shiftId){
+        if ($shift->shift_id != $shiftId){
             return [
                 'message'=>'Invalid shift selection!',
                 'error'=>true,
                 // 'status'=>'inactive'
             ];
         }
-        if ($shift->isCurrentShift()){
+        if ($shift->shift->isCurrentShift()){
            return [
                'message'=>'Your shift is currently active',
                'error'=>false,
