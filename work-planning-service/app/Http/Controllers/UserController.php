@@ -10,6 +10,8 @@ class UserController extends Controller
 {
     //
     function getShiftsByUserId($userId){
+        // dd([]);
+        // return User::query()->find($userId);
        return User::query()->find($userId)->user_shift;
     }
 
@@ -47,7 +49,8 @@ class UserController extends Controller
       if ($shift->shift->isCurrentShift()){
          return [
              'message'=>'Your shift is currently active',
-             'error'=>false
+             'error'=>false,
+             'data'=>$shift->shift
          ];
       }
       return [

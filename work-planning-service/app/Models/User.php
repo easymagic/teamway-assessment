@@ -46,7 +46,7 @@ class User extends Authenticatable
     const DEFAULT_EMAIL = 'default@domain.com';
 
     function user_shift(){
-       return $this->hasOne(UserShift::class,'user_id');
+       return $this->belongsTo(UserShift::class,'id','user_id');
     }
 
     function addShift($shift_id){
@@ -57,7 +57,8 @@ class User extends Authenticatable
           ];
         }
         $userShift = $this->user_shift()->create([
-            'shift_id'=>$shift_id
+            'shift_id'=>$shift_id,
+            'user_id'=>$this->id
         ]);
         return [
           'message'=>'Shift added successfully.',
